@@ -16,16 +16,21 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.epicood.texnodev.R
 import com.epicood.texnodev.domain.model.OnBoardingPage
+import com.epicood.texnodev.navigation.Screen
 import com.epicood.texnodev.ui.theme.*
 import com.epicood.texnodev.util.Constants.ON_BOARDING_PAGE_COUNT
 import com.google.accompanist.pager.*
 
 @ExperimentalPagerApi
 @Composable
-fun WelcomeScreen(navController: NavHostController){
+fun WelcomeScreen(
+    navController: NavHostController,
+    welcomeViewModel: WelcomeViewModel = hiltViewModel(),
+){
     val pages = listOf(
         OnBoardingPage.First,
         OnBoardingPage.Second,
@@ -61,7 +66,9 @@ fun WelcomeScreen(navController: NavHostController){
             modifier = Modifier.weight(1f),
             pageState = pagerState
         ) {
-
+            navController.popBackStack()
+            navController.navigate(Screen.Home.rout)
+            welcomeViewModel.saveOnBoardingState(completed = true)
         }
     }
 }

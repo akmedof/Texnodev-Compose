@@ -9,9 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
@@ -21,27 +19,39 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.epicood.texnodev.R
+import com.epicood.texnodev.navigation.Screen
 import com.epicood.texnodev.ui.theme.Purple500
 import com.epicood.texnodev.ui.theme.Purple700
 
 @Composable
-fun SplashScreen(navController: NavHostController){
+fun SplashScreen(
+    navController: NavHostController,
+    splashViewModel: SplashViewModel = hiltViewModel(),
+){
 
-    val degress = remember{ Animatable(0f)}
-    
+    val onBoardingCompleted by splashViewModel.onBoardingCompleted.collectAsState()
+    val degrees = remember{ Animatable(0f)}
+
     LaunchedEffect(key1 = true){
-        degress.animateTo(
-            targetValue = 1800f,
+        degrees.animateTo(
+            targetValue = 720f,
             animationSpec = tween(
-                durationMillis = 5000,
+                durationMillis = 2500,
                 delayMillis = 200
             )
         )
+        navController.popBackStack()
+        if (onBoardingCompleted){
+            navController.navigate(Screen.Home.rout)
+        }else{
+            navController.navigate(Screen.Welcome.rout)
+        }
     }
 
-    Splash(degrees = degress.value)
+    Splash(degrees = degrees.value)
 }
 
 @Composable
