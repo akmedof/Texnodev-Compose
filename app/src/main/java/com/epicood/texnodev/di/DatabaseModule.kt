@@ -2,6 +2,7 @@ package com.epicood.texnodev.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.epicood.texnodev.data.local.TexnodevDatabase
 import com.epicood.texnodev.util.Constants.TEXNODEV_DATABASE
 import dagger.Module
@@ -19,10 +20,12 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(
         @ApplicationContext context: Context
-    ) = Room.databaseBuilder(
-        context,
-        TexnodevDatabase::class.java,
-        TEXNODEV_DATABASE
-    ).build()
+    ) : TexnodevDatabase {
+         return Room.databaseBuilder(
+            context,
+            TexnodevDatabase::class.java,
+            TEXNODEV_DATABASE
+        ).build()
+    }
 
 }

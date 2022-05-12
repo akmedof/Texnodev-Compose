@@ -3,8 +3,10 @@ package com.epicood.texnodev.ui.theme
 import androidx.compose.material.Colors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.graphics.Color.Companion.LightGray
+import androidx.compose.ui.graphics.Color.Companion.White
 
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFFE91E63)
@@ -38,3 +40,11 @@ val Colors.inActivateIndicatorColor
 val Colors.bottomBackgroundColor
     @Composable
     get() = if(isLight) Purple500 else Purple700
+
+val Colors.topAppBarContentColor: Color
+    @Composable
+    get() = if(isLight) White else LightGray
+
+val Colors.topAppBarBackgroundColor: Color
+    @Composable
+    get() = if(isLight) Purple500 else Black
