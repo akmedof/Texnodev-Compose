@@ -1,5 +1,6 @@
 package com.epicood.texnodev.presentation.screen.home
 
+<<<<<<< HEAD
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -28,4 +29,11 @@ fun HomeScreen(
             )
         }
     )
+=======
+import androidx.compose.runtime.Composable
+
+@Composable
+fun HomeScreen(){
+
+>>>>>>> origin/master
 }
