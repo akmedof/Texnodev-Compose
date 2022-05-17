@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavHostController
+import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
@@ -26,6 +27,7 @@ import coil.compose.rememberImagePainter
 import com.epicood.texnodev.R
 import com.epicood.texnodev.domain.model.Post
 import com.epicood.texnodev.navigation.Screen
+import com.epicood.texnodev.presentation.component.ShimmerEffect
 import com.epicood.texnodev.ui.theme.*
 
 @ExperimentalCoilApi
@@ -35,20 +37,48 @@ fun ListContent(
     navController: NavHostController
 ){
     Log.d("ListContent", posts.loadState.toString())
-    LazyColumn(
-        contentPadding = PaddingValues(SMALE_PADDING),
-        verticalArrangement = Arrangement.spacedBy(SMALE_PADDING)
-    ){
-        items(
-            items = posts,
-            key = { post ->
+    val result = handlePagingResult(posts = posts)
 
-                post.id
+    if(result){
+        LazyColumn(
+            contentPadding = PaddingValues(SMALE_PADDING),
+            verticalArrangement = Arrangement.spacedBy(SMALE_PADDING)
+        ){
+            items(
+                items = posts,
+                key = { post ->
+
+                    post.id
+                }
+            ){ post ->
+                post?.let {
+                    PostItem(post = it, navController = navController)
+                }
             }
-        ){ post ->
-            post?.let {
-                PostItem(post = it, navController = navController)
+        }
+    }
+}
+
+@Composable
+fun handlePagingResult(
+    posts: LazyPagingItems<Post>
+): Boolean{
+    posts.apply {
+        val error = when{
+            loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
+            loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
+            loadState.append is LoadState.Error -> loadState.append as LoadState.Error
+            else -> null
+        }
+        return when{
+            loadState.refresh is LoadState.Loading -> {
+                ShimmerEffect()
+                false
             }
+            error != null -> {
+                false
+            }
+            else -> true
         }
     }
 }
@@ -62,8 +92,8 @@ fun PostItem(
     Log.d("PostItem", post.title)
 
     val painter = rememberImagePainter(data = post.postImage){
-        placeholder(R.drawable.spinnerlogo)
-        error(R.drawable.spinnerlogo)
+        placeholder(R.drawable.texnodev_logo)
+        error(R.drawable.texnodev_logo)
     }
 
     Box(
@@ -72,16 +102,18 @@ fun PostItem(
             .clickable {
                 navController.navigate(Screen.Details.passPostId(postId = post.id))
             },
-        contentAlignment = Alignment.BottomStart
+        contentAlignment = Alignment.BottomStart,
     ) {
         Surface(
-            shape = Shapes.large
+//            shape = Shapes.large
+            shape = RoundedCornerShape(size = LARGE_PADDING)
         ) {
             Image(
                 modifier = Modifier.fillMaxSize(),
                 painter = painter,
                 contentDescription = stringResource(id = R.string.post_image),
-                contentScale = ContentScale.Crop
+                contentScale = ContentScale.Crop,
+
             )
         }
         Surface(
@@ -107,13 +139,13 @@ fun PostItem(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis
                 )
-                Text(
-                    text = post.content,
-                    color = Color.White.copy(ContentAlpha.medium),
-                    fontSize = MaterialTheme.typography.subtitle1.fontSize,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis
-                )
+//                Text(
+//                    text = post.content,
+//                    color = Color.White.copy(ContentAlpha.medium),
+//                    fontSize = MaterialTheme.typography.subtitle1.fontSize,
+//                    maxLines = 3,
+//                    overflow = TextOverflow.Ellipsis
+//                )
             }
         }
     }

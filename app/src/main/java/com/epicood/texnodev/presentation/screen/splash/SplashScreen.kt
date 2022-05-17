@@ -59,16 +59,17 @@ fun Splash(degrees : Float){
     if(isSystemInDarkTheme()){
         Box(
             modifier = Modifier
-                .background(Brush.verticalGradient(listOf(Purple700, Purple500)))
+//                .background(Brush.verticalGradient(listOf(Purple700, Purple500)))
+                .background(Color.Black)
                 .fillMaxSize(),
             contentAlignment = Alignment.Center
 
         ){
             Image(
                 modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(id = R.drawable.spinnerlogo),
+                painter = painterResource(id = R.drawable.texnodev_logo),
                 contentDescription = stringResource(R.string.app_logo),
-                colorFilter = ColorFilter.tint(Color.White)
+//                colorFilter = ColorFilter.tint(Color.White)
             )
         }
     }else{
@@ -81,9 +82,9 @@ fun Splash(degrees : Float){
         ){
             Image(
                 modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(id = R.drawable.spinnerlogo),
+                painter = painterResource(id = R.drawable.texnodev_logo),
                 contentDescription = stringResource(R.string.app_logo),
-                colorFilter = ColorFilter.tint(Color.White)
+//                colorFilter = ColorFilter.tint(Color.White)
             )
         }
     }
