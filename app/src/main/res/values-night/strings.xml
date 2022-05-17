@@ -4,4 +4,6 @@
     <string name="on_boarding_image">On Boarding Image</string>
     <string name="search_icon">Search Icon</string>
     <string name="post_image">Post Image</string>
+    <string name="network_error_icon">Network Error!!!</string>
+    <string name="close_icon">Close Icon</string>
 </resources>

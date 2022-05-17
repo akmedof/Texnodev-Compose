@@ -7,7 +7,8 @@ import com.epicood.texnodev.domain.model.Post
 @Dao
 interface PostDao {
 
-    @Query("SELECT * FROM post_table ORDER BY id ASC")
+//    @Query("SELECT * FROM post_table ORDER BY id ASC")
+    @Query("SELECT * FROM post_table ORDER BY id DESC")
     fun getAllPost(): PagingSource<Int, Post>
 
     @Query("SELECT * FROM post_table WHERE id = :postId")

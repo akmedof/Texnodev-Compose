@@ -2,7 +2,7 @@ package com.epicood.texnodev.util
 
 object Constants {
 
-    const val BASE_URL = "https://texnodev.com/wp-json/wl/v1/"
+    const val BASE_URL = "https://texnodev.com/"
 
     const val DETAILS_ARGUMENT_KEY = "postId"
 

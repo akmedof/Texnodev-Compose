@@ -21,7 +21,7 @@ fun ShimmerEffect(){
         contentPadding = PaddingValues(SMALE_PADDING),
         verticalArrangement = Arrangement.spacedBy(SMALE_PADDING)
     ){
-        items(3){
+        items(4){
             AnimatedShimmerEffect()
         }
     }

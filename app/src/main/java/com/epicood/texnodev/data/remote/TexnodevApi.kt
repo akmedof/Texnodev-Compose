@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface TexnodevApi {
 
-    @GET("posts")
+    @GET("wp-json/wl/v1/posts")
     suspend fun getAllHeroes(): List<Post>
 
 }
