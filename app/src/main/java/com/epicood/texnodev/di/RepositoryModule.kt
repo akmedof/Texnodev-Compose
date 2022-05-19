@@ -8,6 +8,7 @@ import com.epicood.texnodev.domain.use_cases.UseCases
 import com.epicood.texnodev.domain.use_cases.get_all_posts.GetAllPostsUseCase
 import com.epicood.texnodev.domain.use_cases.read_onboarding.ReadOnBoardingUseCase
 import com.epicood.texnodev.domain.use_cases.save_onboarding.SaveOnBoardingUseCase
+import com.epicood.texnodev.domain.use_cases.search_posts.SearchPostsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +34,8 @@ object RepositoryModule {
         return UseCases(
             saveOnBoardingState = SaveOnBoardingUseCase(repository = repository),
             readOnBoardingState = ReadOnBoardingUseCase(repository = repository),
-            getAllPostsUseCase = GetAllPostsUseCase(repository = repository)
+            getAllPostsUseCase = GetAllPostsUseCase(repository = repository),
+            searchPostsUseCase = SearchPostsUseCase(repository = repository)
         )
     }
 

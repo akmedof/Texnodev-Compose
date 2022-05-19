@@ -6,6 +6,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.epicood.texnodev.data.local.TexnodevDatabase
 import com.epicood.texnodev.data.paging_source.PostRemoteMediator
+import com.epicood.texnodev.data.paging_source.SearchPostSource
 import com.epicood.texnodev.data.remote.TexnodevApi
 import com.epicood.texnodev.domain.model.Post
 import com.epicood.texnodev.domain.repository.RemoteDataStore
@@ -21,6 +22,18 @@ class RemoteDataStoreImpl(
 
     override fun getAllPosts(): Flow<PagingData<Post>> {
         val pagingSourceFactory = {postDao.getAllPost()}
+        return Pager(
+            config = PagingConfig(3),
+            remoteMediator = PostRemoteMediator(
+                texnodevApi = texnodevApi,
+                texnodevDatabase = texnodevDatabase
+            ),
+            pagingSourceFactory = pagingSourceFactory
+        ).flow
+    }
+
+    override fun searchPosts(query: String): Flow<PagingData<Post>> {
+        val pagingSourceFactory = {postDao.searchPosts(query)}
         return Pager(
             config = PagingConfig(3),
             remoteMediator = PostRemoteMediator(

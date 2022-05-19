@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface RemoteDataStore {
     fun getAllPosts(): Flow<PagingData<Post>>
+    fun searchPosts(query: String): Flow<PagingData<Post>>
 }
