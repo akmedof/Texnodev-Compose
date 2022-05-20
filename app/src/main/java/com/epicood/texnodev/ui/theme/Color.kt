@@ -15,7 +15,8 @@ val Teal200 = Color(0xFF03DAC5)
 
 
 val LightGrey = Color(0xFFF5F1F1)
-val DarkGrey = Color(0xFF151616)
+val DarkGrey = Color(0xFF17171A)
+val BlueGrey = Color(0xFF3B6BFF)
 
 val ShimmerLightGray = Color(0xFFF1F1F1)
 val ShimmerMediumGray = Color(0xFFE3E3E3)
@@ -27,7 +28,7 @@ val Colors.welcomeScreenBackgroundColor
 
 val Colors.titleColor
     @Composable
-    get() = if(isLight) DarkGray else LightGray
+    get() = if(isLight) White else LightGray
 
 val Colors.descriptionColor
     @Composable
@@ -47,8 +48,8 @@ val Colors.bottomBackgroundColor
 
 val Colors.topAppBarContentColor: Color
     @Composable
-    get() = if(isLight) White else LightGray
+    get() = if(isLight) White else BlueGrey
 
 val Colors.topAppBarBackgroundColor: Color
     @Composable
-    get() = if(isLight) Purple500 else Black
+    get() = if(isLight) Purple500 else DarkGrey

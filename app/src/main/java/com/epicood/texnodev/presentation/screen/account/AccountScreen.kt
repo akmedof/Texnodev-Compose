@@ -1,4 +1,4 @@
-package com.epicood.texnodev.presentation.screen.category
+package com.epicood.texnodev.presentation.screen.account
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
@@ -22,19 +22,19 @@ import com.epicood.texnodev.ui.theme.LightGrey
 import com.epicood.texnodev.ui.theme.SMALE_PADDING
 
 @Composable
-fun CategoryScreen(
+fun AccountScreen(
     navController: NavHostController
 ){
     Scaffold(
         bottomBar = { BottomBarMenuScreen(navController = navController)},
         content = {
-            CategoryUI()
+            AccountUI()
         }
     )
 }
 
 @Composable
-fun CategoryUI(){
+fun AccountUI(){
     Column(
 //        modifier = Modifier
 //            .fillMaxSize()
@@ -52,7 +52,7 @@ fun CategoryUI(){
         Text(
             modifier = Modifier
                 .padding(SMALE_PADDING),
-            text = "Category Screen",
+            text = "Account Screen",
             color = if (isSystemInDarkTheme()) LightGrey else DarkGrey,
             textAlign = TextAlign.Center,
             fontWeight = FontWeight.Medium,

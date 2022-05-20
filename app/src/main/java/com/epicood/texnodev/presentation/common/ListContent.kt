@@ -1,8 +1,10 @@
 package com.epicood.texnodev.presentation.common
 
+import android.graphics.ColorSpace
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -97,8 +100,10 @@ fun PostItem(
     Log.d("PostItem", post.title)
 
     val painter = rememberImagePainter(data = post.postImage){
-        placeholder(R.drawable.texnodev_logo)
-        error(R.drawable.texnodev_logo)
+        placeholder(R.drawable.ic_empty_image)
+        error(R.drawable.ic_empty_image)
+        ColorFilter.tint(if (isSystemInDarkTheme()) LightGrey else DarkGrey)
+
     }
 
     Box(
@@ -117,8 +122,7 @@ fun PostItem(
                 modifier = Modifier.fillMaxSize(),
                 painter = painter,
                 contentDescription = stringResource(id = R.string.post_image),
-                contentScale = ContentScale.Crop,
-
+                contentScale = ContentScale.Crop
             )
         }
         Surface(
@@ -138,7 +142,7 @@ fun PostItem(
             ) {
                 Text(
                     text = post.title,
-                    color = MaterialTheme.colors.topAppBarContentColor,
+                    color = MaterialTheme.colors.titleColor,
                     fontSize = MaterialTheme.typography.h5.fontSize,
                     fontWeight = FontWeight.Bold,
                     maxLines = 2,

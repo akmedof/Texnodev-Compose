@@ -1,7 +1,6 @@
 package com.epicood.texnodev.presentation.screen.splash
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import android.window.SplashScreen
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
@@ -13,9 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,8 +20,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.epicood.texnodev.R
 import com.epicood.texnodev.navigation.Screen
-import com.epicood.texnodev.ui.theme.Purple500
-import com.epicood.texnodev.ui.theme.Purple700
 
 @Composable
 fun SplashScreen(
@@ -67,7 +62,7 @@ fun Splash(degrees : Float){
         ){
             Image(
                 modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(id = R.drawable.texnodev_logo),
+                painter = painterResource(id = R.drawable.texnodev_icon),
                 contentDescription = stringResource(R.string.app_logo),
 //                colorFilter = ColorFilter.tint(Color.White)
             )
@@ -82,7 +77,7 @@ fun Splash(degrees : Float){
         ){
             Image(
                 modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(id = R.drawable.texnodev_logo),
+                painter = painterResource(id = R.drawable.texnodev_icon),
                 contentDescription = stringResource(R.string.app_logo),
 //                colorFilter = ColorFilter.tint(Color.White)
             )
