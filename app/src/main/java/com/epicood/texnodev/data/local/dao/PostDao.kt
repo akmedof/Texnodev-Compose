@@ -12,7 +12,8 @@ interface PostDao {
     @Query("SELECT * FROM post_table ORDER BY id DESC")
     fun getAllPost(): PagingSource<Int, Post>
 
-    @Query("SELECT * FROM post_table WHERE title OR content LIKE '%' || :searchQuery || '%' ORDER BY id DESC")
+//    @Query("SELECT * FROM post_table WHERE title OR content LIKE '%' || :searchQuery || '%' ORDER BY id DESC")
+    @Query("SELECT * FROM post_table WHERE title LIKE '%' || :searchQuery || '%' ORDER BY id DESC")
     fun searchPosts(searchQuery: String): PagingSource<Int, Post>
 
     @Query("SELECT * FROM post_table WHERE id = :postId")

@@ -76,7 +76,11 @@ fun handlePagingResult(
                 false
             }
             error != null -> {
-                EmptyScreen(error = error)
+                EmptyScreen(error = error, posts = posts)
+                false
+            }
+            posts.itemCount < 1 -> {
+                EmptyScreen()
                 false
             }
             else -> true

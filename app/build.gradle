@@ -102,6 +102,9 @@ dependencies {
     // Swipe to Refresh - Accompanist
     implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
 
+    // Swipe to Refresh - Accompanist
+    implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"
+
     // System UI Controller - Accompanist
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanist_version"
 
