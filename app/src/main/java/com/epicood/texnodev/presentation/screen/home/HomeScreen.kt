@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
 import coil.annotation.ExperimentalCoilApi
 import com.epicood.texnodev.navigation.Screen
+import com.epicood.texnodev.presentation.bottom.BottomBarMenuScreen
 import com.epicood.texnodev.presentation.common.ListContent
 
 @ExperimentalCoilApi
@@ -23,6 +24,9 @@ fun HomeScreen(
             HomeTopBar(onSearchClicked = {
                 navController.navigate(Screen.Search.rout)
             })
+        },
+        bottomBar = {
+            BottomBarMenuScreen(navController = navController)
         },
         content = {
             ListContent(

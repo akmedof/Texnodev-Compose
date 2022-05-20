@@ -33,6 +33,7 @@ class MainActivity : ComponentActivity() {
             TexnodevTheme {
                 navController = rememberNavController()
                 SetupNavGraph(navController = navController)
+//                BottomNavGraph(navController = navController)
             }
         }
     }
