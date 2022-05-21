@@ -40,7 +40,7 @@ fun SearchScreen(
                 }
             )
         },
-        bottomBar = { BottomBarMenuScreen(navController = navController)},
+//        bottomBar = { BottomBarMenuScreen(navController = navController)},
         content = {
             ListContent(posts = posts, navController = navController)
         }

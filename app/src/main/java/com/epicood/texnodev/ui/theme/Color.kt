@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.graphics.Color.Companion.White
 
-val Purple200 = Color(0xFFBB86FC)
+val Purple200 = Color(0xFF3B6BFF)
 val Purple500 = Color(0xFFE91E63)
 val Purple700 = Color(0xFF1C3BE6)
 val Teal200 = Color(0xFF03DAC5)
