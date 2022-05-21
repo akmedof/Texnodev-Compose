@@ -6,6 +6,7 @@ import com.epicood.texnodev.data.repository.Repository
 import com.epicood.texnodev.domain.repository.DataStoreOperations
 import com.epicood.texnodev.domain.use_cases.UseCases
 import com.epicood.texnodev.domain.use_cases.get_all_posts.GetAllPostsUseCase
+import com.epicood.texnodev.domain.use_cases.get_selected_post.GetSelectedPostUseCase
 import com.epicood.texnodev.domain.use_cases.read_onboarding.ReadOnBoardingUseCase
 import com.epicood.texnodev.domain.use_cases.save_onboarding.SaveOnBoardingUseCase
 import com.epicood.texnodev.domain.use_cases.search_posts.SearchPostsUseCase
@@ -35,7 +36,8 @@ object RepositoryModule {
             saveOnBoardingState = SaveOnBoardingUseCase(repository = repository),
             readOnBoardingState = ReadOnBoardingUseCase(repository = repository),
             getAllPostsUseCase = GetAllPostsUseCase(repository = repository),
-            searchPostsUseCase = SearchPostsUseCase(repository = repository)
+            searchPostsUseCase = SearchPostsUseCase(repository = repository),
+            getSelectedPostUseCase = GetSelectedPostUseCase(repository = repository)
         )
     }
 

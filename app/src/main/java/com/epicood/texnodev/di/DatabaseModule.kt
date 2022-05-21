@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.epicood.texnodev.data.local.TexnodevDatabase
+import com.epicood.texnodev.data.repository.LocalDataSourceImpl
+import com.epicood.texnodev.domain.repository.LocalDataSource
 import com.epicood.texnodev.util.Constants.TEXNODEV_DATABASE
 import dagger.Module
 import dagger.Provides
@@ -26,6 +28,16 @@ object DatabaseModule {
             TexnodevDatabase::class.java,
             TEXNODEV_DATABASE
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocalDataSource(
+        database: TexnodevDatabase
+    ): LocalDataSource{
+        return LocalDataSourceImpl(
+            texnodevDatabase = database
+        )
     }
 
 }
