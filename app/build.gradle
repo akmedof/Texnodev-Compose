@@ -98,6 +98,8 @@ dependencies {
     // Horizontal Pager and Indicators - Accompanist
     implementation "com.google.accompanist:accompanist-pager:$accompanist_version"
     implementation "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
+    implementation "com.google.accompanist:accompanist-insets:$accompanist_version"
+
 
     // Swipe to Refresh - Accompanist
     implementation "com.google.accompanist:accompanist-swiperefresh:$accompanist_version"

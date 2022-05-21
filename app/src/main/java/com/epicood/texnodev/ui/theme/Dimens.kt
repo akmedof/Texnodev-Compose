@@ -17,4 +17,11 @@ val NAME_PLACEHOLDER_HEIGHT = 25.dp
 val ABOUT_PLACEHOLDER_HEIGHT = 12.5.dp
 val NETWORK_ERROR_ICON_HEIGHT = 250.dp
 
+val POST_ITEM_DETAILS_HEIGHT = 400.dp
+//val AppBarColle = 325.dp
+
+val AppBarCollapsedHeight = 56.dp
+val AppBarExpendedHeight = 400.dp
+
+
 

@@ -10,6 +10,7 @@ import androidx.navigation.navArgument
 import coil.annotation.ExperimentalCoilApi
 import com.epicood.texnodev.presentation.screen.account.AccountScreen
 import com.epicood.texnodev.presentation.screen.category.CategoryScreen
+import com.epicood.texnodev.presentation.screen.details.DetailsScreen
 import com.epicood.texnodev.presentation.screen.favorite.FavoriteScreen
 import com.epicood.texnodev.presentation.screen.home.HomeScreen
 import com.epicood.texnodev.presentation.screen.search.SearchScreen
@@ -23,7 +24,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 @ExperimentalPagerApi
 @Composable
 fun SetupNavGraph(navController: NavHostController){
-    NavHost(navController = navController, startDestination = Screen.Home.rout ){
+    NavHost(navController = navController, startDestination = Screen.Details.rout ){
         composable(route = Screen.Splash.rout){
             SplashScreen(navController = navController)
         }
@@ -39,7 +40,7 @@ fun SetupNavGraph(navController: NavHostController){
                 type = NavType.IntType
             })
         ){
-
+            DetailsScreen(navController = navController)
         }
         composable(route = Screen.Search.rout){
             SearchScreen(navController = navController)

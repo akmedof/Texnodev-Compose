@@ -103,7 +103,6 @@ fun PostItem(
         placeholder(R.drawable.ic_empty_image)
         error(R.drawable.ic_empty_image)
         ColorFilter.tint(if (isSystemInDarkTheme()) LightGrey else DarkGrey)
-
     }
 
     Box(
