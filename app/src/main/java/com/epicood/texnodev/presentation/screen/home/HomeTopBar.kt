@@ -12,7 +12,9 @@ import com.epicood.texnodev.ui.theme.topAppBarBackgroundColor
 import com.epicood.texnodev.ui.theme.topAppBarContentColor
 
 @Composable
-fun HomeTopBar(onSearchClicked: () -> Unit){
+fun HomeTopBar(
+    onSearchClicked: () -> Unit
+){
     TopAppBar(
         title = {
             Icon(
