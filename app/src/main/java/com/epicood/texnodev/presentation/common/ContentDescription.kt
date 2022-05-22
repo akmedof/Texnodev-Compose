@@ -111,7 +111,7 @@ fun GetHtml(html: String) {
         x = conn.select("img")
         val y: Elements = conn.select("p,img")
         val img = "<img src"
-        val img2 = "geo_headline_2"
+//        val img2 = "geo_headline_2"
         for (k in y) {
             if (k.toString().substring(0, img.length) == img) {
                 list.add(k.attr("src").replace("[\\\\\"]".toRegex(), ""))
