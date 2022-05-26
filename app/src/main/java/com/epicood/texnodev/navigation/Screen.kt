@@ -6,11 +6,12 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.epicood.texnodev.R
 
 sealed class Screen(
     val rout: String,
     val title: String? = null,
-    val icon: ImageVector? = null
+    val icon: Int? = null
     ) {
 
     object Splash: Screen("splash_screen")
@@ -20,7 +21,7 @@ sealed class Screen(
     object Home: Screen(
         rout = "home_screen",
         title = "Home",
-        icon = Icons.Default.Home
+        icon = R.drawable.ic_news_icon
     )
     object Details: Screen("details_screen/{postId}"){
         fun passPostId(postId: Int): String{
@@ -33,17 +34,17 @@ sealed class Screen(
     object Category: Screen(
         rout = "category_screen",
         title = "Category",
-        icon = Icons.Default.FavoriteBorder
+        icon = R.drawable.ic_category_icon
     )
     object Favorite: Screen(
         rout = "favorite_screen",
         title = "Favorite",
-        icon = Icons.Default.Favorite
+        icon = R.drawable.ic_favorite_icon
     )
     object Account: Screen(
         rout = "account_screen",
         title = "Account",
-        icon = Icons.Default.AccountBox
+        icon = R.drawable.ic_profile_icon
     )
 
 }

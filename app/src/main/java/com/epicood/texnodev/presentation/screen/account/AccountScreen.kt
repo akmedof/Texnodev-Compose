@@ -2,10 +2,7 @@ package com.epicood.texnodev.presentation.screen.account
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +18,7 @@ import com.epicood.texnodev.ui.theme.DarkGrey
 import com.epicood.texnodev.ui.theme.LightGrey
 import com.epicood.texnodev.ui.theme.SMALE_PADDING
 
+@ExperimentalMaterialApi
 @Composable
 fun AccountScreen(
     navController: NavHostController
@@ -28,7 +26,8 @@ fun AccountScreen(
     Scaffold(
         bottomBar = { BottomBarMenuScreen(navController = navController)},
         content = {
-            AccountUI()
+//            AccountUI()
+            SettingsScreen()
         }
     )
 }

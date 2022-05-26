@@ -1,14 +1,22 @@
 package com.epicood.texnodev.presentation.bottom
 
-import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.epicood.texnodev.navigation.Screen
+import com.epicood.texnodev.ui.theme.Shapes
+import com.epicood.texnodev.ui.theme.cardUIBackground
 import com.epicood.texnodev.ui.theme.topAppBarBackgroundColor
 import com.epicood.texnodev.ui.theme.topAppBarContentColor
 
@@ -45,19 +53,27 @@ fun RowScope.AddItem(
     currentDestination: NavDestination,
     navController: NavHostController
 ){
+//    Spacer(modifier = Modifier.width(30.dp))
     BottomNavigationItem(
 //        unselectedContentColor = MaterialTheme.colors.topAppBarBackgroundColor,
 //        selectedContentColor = MaterialTheme.colors.topAppBarContentColor,
-
         label = {
-            Text(text = screen.title.toString())
+            Modifier.padding(top = 10.dp)
+            Text(text = screen.title.toString(), fontWeight = FontWeight.Bold)
         },
         icon = {
-            Icon(imageVector = screen.icon!!, contentDescription = "Navigation Icon")
+            Box(
+                modifier = Modifier
+                    .size(25.dp)
+                    .clip(shape = Shapes.medium)
+//                    .background(MaterialTheme.colors.cardUIBackground)
+            ) {
+                Icon(painter = painterResource(id = screen.icon!!), contentDescription = "Navigation Icon")
+            }
         },
         selected = currentDestination.hierarchy.any{
             it.route == screen.rout
-        } == true,
+        },
         unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
         onClick = {
             navController.navigate(screen.rout)

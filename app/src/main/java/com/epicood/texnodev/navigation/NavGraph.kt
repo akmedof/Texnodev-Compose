@@ -20,6 +20,7 @@ import com.epicood.texnodev.presentation.screen.welcome.WelcomeScreen
 import com.epicood.texnodev.util.Constants.DETAILS_ARGUMENT_KEY
 import com.google.accompanist.pager.ExperimentalPagerApi
 
+@ExperimentalMaterialApi
 @ExperimentalCoilApi
 @ExperimentalAnimationApi
 @ExperimentalPagerApi
